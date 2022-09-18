@@ -2,6 +2,12 @@
 
 Bypass SNI-based censorship for sites that don't look at the Server Name Indication field in the TLS handshake. (Example list in [domains.yaml](./domains.yaml))
 
+![attempting to view wikileaks on 2 browers. One not working with a proxy, and the other working with sni-proxy](./assets/comparison.png)
+
+> Left: Chrome (regular connection)
+>
+> Right: Firefox (proxied connection)
+
 # Usage
 
 As always, start with cloning the repo locally and make sure you're in the root folder.
