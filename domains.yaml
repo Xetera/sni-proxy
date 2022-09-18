@@ -1,0 +1,50 @@
+# Modify the domains list in this document
+
+# The SNI value that will be used for all domains.
+# Some sites like nordvpn.com check to make sure this
+# is a valid domain.
+default_sni: google.com
+
+# All root domains that will be replaced with the default SNI above.
+# This also includes CDN domains that sites sometimes use outside of their
+# own root domain
+domains:
+  # VPN
+  - privateinternetaccess.com
+  - expressvpn.com # Not working | AWS Cloudfront blocks all domain fronting
+  - ipvanish.com # Not working | Cloudflare
+
+  # news / information
+  - dw.com
+  - jinpanel.com
+  - wikileaks.com
+  - wikileaks.org
+
+  # social media
+  - twitter.com # not normally blocked, but just in case
+  - twimg.com
+
+  # nsfw
+  - pornhub.com
+  - redtube.com
+  - phncdn.com
+  - youporn.com
+  - xnxx.com
+  - xnxx-cdn.com
+  - xvideos.com
+  - xvideos-cdn.com
+  - nhentai.net # Blocked by local cloudflare POP traffic
+
+# Delicate Domains don't work without including a substring of the original domain
+# in their SNI field. They get garbage values appended to fool the censor without
+# breaking the target server.
+# If something doesn't work in the `domains` field. Try moving it over to here
+delicate_domains:
+  # VPN
+  - nordvpn.com
+  - nordcdn.com
+  - nordaccount.com
+
+  # nsfw
+  - xhamster.com
+  - hentaihaven.xxx # Blocked by local cloudflare POP traffic
